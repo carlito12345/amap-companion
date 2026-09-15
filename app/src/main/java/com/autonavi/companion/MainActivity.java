@@ -2134,6 +2134,11 @@ public class MainActivity extends Activity {
     }
 
     private void checkForUpdates(boolean manual) {
+        if ("com.geely.desktop".equals(getPackageName())) {
+            updateUpdateText("由 GEELY DESKTOP 主程序统一更新");
+            if (manual) Toast.makeText(this, "请更新 GEELY DESKTOP", Toast.LENGTH_SHORT).show();
+            return;
+        }
         String url = getUpdateUrl();
         if (TextUtils.isEmpty(url)) {
             if (manual) {
